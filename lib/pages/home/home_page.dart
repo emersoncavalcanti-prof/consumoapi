@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_api_rest2/data/http/http_client.dart';
 import 'package:flutter_api_rest2/data/models/repositories/produto_repository.dart';
@@ -14,7 +12,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   final ProdutoStore store =
-      ProdutoStore(repository: ProdutoRepository(cliente: HttpClient()));
+      ProdutoStore(repository: ProdutoRepository(cliente: DioClient()));
 
   @override
   void initState() {
@@ -36,7 +34,7 @@ class _HomePageState extends State<HomePage> {
         ]),
         builder: (context, child) {
           if (store.isLoading.value) {
-            return const CircularProgressIndicator();
+            return const Center(child: CircularProgressIndicator());
           }
 
           if (store.error.value.isNotEmpty) {

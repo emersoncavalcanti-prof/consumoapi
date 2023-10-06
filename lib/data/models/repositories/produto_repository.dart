@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_api_rest2/data/http/exceptions.dart';
 import 'package:flutter_api_rest2/data/http/http_client.dart';
 import 'package:flutter_api_rest2/data/models/produto_model.dart';
@@ -21,7 +19,11 @@ class ProdutoRepository implements IProdutoRepository {
 
     if (response.statusCode == 200) {
       final List<ProdutoModel> produtos = [];
-      final body = jsonDecode(response.body);
+
+      //se for http
+      //final body = jsonDecode(response.body);
+      //se for DIO
+      final body = response.data;
 
       body['products'].map((item) {
         final ProdutoModel produto = ProdutoModel.fromMap(item);
