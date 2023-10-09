@@ -4,7 +4,7 @@ import 'package:flutter_api_rest2/data/models/produto_model.dart';
 import 'package:flutter_api_rest2/data/models/repositories/produto_repository.dart';
 
 class ProdutoStore {
-  final IProdutoRepository repository;
+  final ProdutoRepository repository;
 
   final ValueNotifier<bool> isLoading = ValueNotifier(false);
   final ValueNotifier<List<ProdutoModel>> state =

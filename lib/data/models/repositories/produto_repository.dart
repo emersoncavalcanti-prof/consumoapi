@@ -2,16 +2,11 @@ import 'package:flutter_api_rest2/data/http/exceptions.dart';
 import 'package:flutter_api_rest2/data/http/http_client.dart';
 import 'package:flutter_api_rest2/data/models/produto_model.dart';
 
-abstract interface class IProdutoRepository {
-  Future<List<ProdutoModel>> getProdutos();
-}
-
-class ProdutoRepository implements IProdutoRepository {
+class ProdutoRepository {
   final IHttpClient cliente;
 
   ProdutoRepository({required this.cliente});
 
-  @override
   Future<List<ProdutoModel>> getProdutos() async {
     final response = await cliente.get(
       url: 'https://dummyjson.com/products',
