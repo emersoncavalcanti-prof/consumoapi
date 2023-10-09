@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_rest2/data/http/exceptions.dart';
 import 'package:flutter_api_rest2/data/models/produto_model.dart';
-import 'package:flutter_api_rest2/data/models/repositories/produto_repository.dart';
+import 'package:flutter_api_rest2/data/repositories/produto_repository.dart';
 
 class ProdutoStore {
   final ProdutoRepository repository;

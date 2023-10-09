@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_api_rest2/data/http/http_client.dart';
-import 'package:flutter_api_rest2/data/models/repositories/produto_repository.dart';
+import 'package:flutter_api_rest2/data/repositories/produto_repository.dart';
 import 'package:flutter_api_rest2/pages/home/stores/produto_store.dart';
 
 class HomePage extends StatefulWidget {
