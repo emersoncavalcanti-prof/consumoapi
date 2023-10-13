@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_api_rest2/data/http/http_client.dart';
 import 'package:flutter_api_rest2/data/repositories/produto_repository.dart';
 import 'package:flutter_api_rest2/pages/home/stores/produto_store.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,17 +12,15 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  final ProdutoStore store =
-      ProdutoStore(repository: ProdutoRepository(cliente: DioClient()));
-
-  @override
-  void initState() {
-    super.initState();
-    store.getProdutos();
-  }
-
   @override
   Widget build(BuildContext context) {
+    final dioClient = Provider.of<DioClient>(context);
+
+    final ProdutoStore store =
+        ProdutoStore(repository: ProdutoRepository(cliente: dioClient));
+
+    store.getProdutos();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Consumindo API'),
